@@ -1,0 +1,21 @@
+إرسال بريد القبول للطلبة عبر Resend (اختياري — بعد إتمام SETUP-SUPABASE)
+
+الفكرة: عند الضغط على «قبول» في اللوحة تسألك: «إرسال بريد القبول الآن؟». الإرسال يتم من دالة آمنة في Supabase (send-decision)
+ولا يوجد مفتاح Resend داخل الموقع أبداً.
+
+1) resend.com ← أنشئ حساباً ← Domains ← Add Domain: أضف نطاقك (مثل astramind.dz) وأضف سجلات DNS التي يعرضها لك حتى تصبح الحالة Verified.
+   تنبيه: بدون نطاق موثّق، لا يرسل Resend إلا إلى بريد حسابك أنت (للتجربة فقط) ولن يصل البريد للطلبة.
+2) Resend ← API Keys ← Create (صلاحية Sending access تكفي) وانسخ المفتاح (يبدأ بـ re_).
+3) ثبّت Supabase CLI ثم من مجلد المشروع:
+     supabase login
+     supabase link --project-ref YOUR_PROJECT_REF
+     supabase secrets set RESEND_API_KEY=re_xxx FROM_EMAIL="AstraMind <club@yourdomain.com>" ADMIN_EMAIL=you@mail.com
+     supabase secrets set REPLY_TO=club@mail.com CLUB_LINK=https://chat.whatsapp.com/xxxx SITE_URL=https://your-site.com
+     supabase functions deploy send-decision --no-verify-jwt
+   (REPLY_TO و CLUB_LINK و SITE_URL اختيارية. CLUB_LINK رابط مجموعة الطلبة ويظهر كزر في بريد القبول.
+    ADMIN_EMAIL يجب أن يطابق بريد المشرف. الدالة ترفض أي حساب آخر، وهذا هو سبب إيقاف التحقق التلقائي بـ --no-verify-jwt.)
+4) في public/supabase-config.js غيّر emails:false إلى emails:true ثم أعد النشر.
+5) جرّب بطلب باسم بريدك أنت: اضغط «قبول» ← وافق على الإرسال. يظهر على البطاقة «✉ أُرسل البريد» ويمكنك «إعادة إرسال».
+
+تعديل نص الرسائل: ملف supabase/functions/send-decision/index.ts (دالة build، عربي وإنجليزي، قبول ورفض) ثم أعد أمر deploy.
+حدّ Resend الافتراضي 5 رسائل في الثانية، وهو كافٍ تماماً لنادٍ.

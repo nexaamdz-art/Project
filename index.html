@@ -576,6 +576,6 @@ document.addEventListener('click',e=>{const a=e.target.closest('a[href^="#"]'),i
  const nl=$(`#nv a[href="#${id}"]`),f=$('#flip');$('#ft').textContent=nl?nl.textContent:'';$('#fn').textContent='— '+(secs.indexOf(t)+1)+' —';f.className='in';setTimeout(()=>{scrollTo({top:y,behavior:'instant'});f.className='out'},720);setTimeout(()=>f.className='',1650)});
 $('#yr').textContent=new Date().getFullYear();
 if(localStorage.astra_lang=='en')setL('en');else setL('ar');
-const S=window.ASTRA_SB;if(S)fetch(`${S.url}/rest/v1/site_content?id=eq.1&select=data`,{headers:{apikey:S.key}}).then(r=>r.ok?r.json():[]).then(a=>{const d=a[0]&&a[0].data;if(d&&Object.keys(d).length&&!DR){D={...(window.ASTRA_DATA||{}),...d};render()}}).catch(()=>{});
+const S=window.ASTRA_SB;if(S)fetch(`${S.url}/rest/v1/site_content?id=eq.1&select=data`,{headers:{apikey:S.key}}).then(r=>r.ok?r.json():[]).then(a=>{const d=a[0]&&a[0].data;if(d&&Object.keys(d).length&&!DR){D={...(window.ASTRA_DATA||{}),...d};if(Array.isArray(d.team)&&!d.team.length&&!d._teamInit&&window.ASTRA_DATA?.team?.length)D.team=window.ASTRA_DATA.team;render()}}).catch(()=>{});
 render();
 </script></body></html>

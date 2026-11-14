@@ -2,7 +2,7 @@
 -- Only edit the admin email in is_admin() below (one place), then press Run.
 
 create or replace function public.is_admin() returns boolean language sql stable as
-$$ select coalesce(lower(auth.jwt() ->> 'email') = lower('REPLACE_WITH_ADMIN_EMAIL'), false) $$;
+$$ select coalesce(lower(auth.jwt() ->> 'email') = lower('nexa.am.dz@gmail.com'), false) $$;
 
 -- ============ 1) Membership requests ============
 create table if not exists public.requests (

@@ -40,68 +40,60 @@ section{position:relative;padding:120px max(6vw,22px) 90px;min-height:80vh}.pgn{
 .tape{position:absolute;top:-10px;left:50%;width:64px;height:22px;margin-left:-32px;background:rgba(217,168,217,.75);transform:rotate(-4deg)}
 .cta{position:absolute;inset-inline-start:2%;bottom:-8%;z-index:6;display:flex;gap:12px;flex-wrap:wrap}
 /* 02 chalkboard */
-.chalk{position:relative;max-width:1080px;margin:auto;border-radius:12px;background:#07142e radial-gradient(circle at 50% 52%,rgba(34,98,176,.32) 0%,rgba(9,24,54,.82) 60%,#050f24 100%);border:8px solid #132548;box-shadow:inset 0 0 90px rgba(0,0,0,.72),0 30px 70px #000a;overflow:hidden;padding:24px 14px 28px}
-.chalk-bg{position:absolute;inset:0;z-index:1;opacity:.25;pointer-events:none}
+.chalk{position:relative;max-width:1080px;margin:auto;border-radius:12px;background:#07142e radial-gradient(circle at 50% 48%,rgba(34,98,176,.32) 0%,rgba(9,24,54,.84) 62%,#050f24 100%);border:8px solid #132548;box-shadow:inset 0 0 90px rgba(0,0,0,.72),0 30px 70px #000a;overflow:hidden;padding:24px 16px 20px}
+.chalk-bg{position:absolute;inset:0;z-index:1;opacity:.22;pointer-events:none}
+.chalk-net{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;display:block}
 .chalk-grid{position:absolute;inset:0;background:linear-gradient(rgba(165,222,255,.35) 1px,transparent 1px) 0 0/32px 32px,linear-gradient(90deg,rgba(165,222,255,.35) 1px,transparent 1px) 0 0/32px 32px}
-.chalk-smudge{position:absolute;inset:0;background:radial-gradient(ellipse 32% 18% at 24% 28%,rgba(205,232,255,.6),transparent 70%),radial-gradient(ellipse 28% 14% at 76% 68%,rgba(195,228,255,.55),transparent 72%),radial-gradient(ellipse 22% 12% at 52% 20%,rgba(215,238,255,.5),transparent 70%);filter:blur(10px)}
-.chalk-dust{position:absolute;inset:0;background-image:radial-gradient(circle at 14% 22%,#dff4ff 1px,transparent 1.4px),radial-gradient(circle at 82% 18%,#bfe8ff .9px,transparent 1.3px),radial-gradient(circle at 38% 78%,#dff4ff 1px,transparent 1.4px),radial-gradient(circle at 67% 84%,#bfe8ff .8px,transparent 1.2px),radial-gradient(circle at 91% 52%,#dff4ff .9px,transparent 1.3px),radial-gradient(circle at 9% 64%,#bfe8ff .8px,transparent 1.2px);background-size:210px 180px}
-.ttl{position:relative;z-index:4;text-align:center;padding:2px 10px;font:700 clamp(1.3rem,3.4vw,2.45rem)/1.2 var(--ser);color:#e4f5ff;text-shadow:0 0 16px rgba(88,189,235,.55)}
-.chalk-motto{position:relative;z-index:4;text-align:center;font:600 clamp(.95rem,2vw,1.35rem)/1.3 var(--hand);color:#8fd8ff;letter-spacing:.04em;margin-top:2px;text-shadow:0 0 10px rgba(88,189,235,.4)}
-.chalk-arena{position:relative;z-index:3;margin-top:16px;display:grid;grid-template-columns:1fr 1fr;gap:14px 10px;align-items:center}
-.chalk-links{position:absolute;inset:0;width:100%;height:100%;z-index:1;fill:none;pointer-events:none;opacity:.88}
-.cpath{stroke:rgba(135,214,255,.45);stroke-width:1.8;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;filter:drop-shadow(0 0 5px rgba(88,189,235,.55))}
-.chalk.go .cpath{animation:dw 1.4s calc(var(--d,0s)) ease forwards}
-.cnode{fill:#bfeaff;opacity:0;filter:drop-shadow(0 0 6px #7fe0ff)}
-.chalk.go .cnode{opacity:.9;transition:opacity .5s ease calc(var(--d,0s) + 1s)}
-.cpulse{opacity:0;fill:#ffffff;filter:drop-shadow(0 0 6px #8ee5ff)}
-.chalk.active .cpulse{opacity:1}
-@keyframes dw{to{stroke-dashoffset:0}}
-.brain-hub{position:relative;z-index:4;grid-column:1/-1;grid-row:2;justify-self:center;width:clamp(124px,32vw,182px);aspect-ratio:1;display:grid;place-items:center;cursor:pointer}
-.brain-aura{position:absolute;inset:-18%;border-radius:50%;background:radial-gradient(closest-side,rgba(155,222,255,.55) 0%,rgba(88,189,235,.28) 46%,rgba(88,189,235,.06) 78%,transparent 100%);filter:blur(9px);animation:brain8 8s ease-in-out infinite;animation-play-state:paused;pointer-events:none}
-.bigbrain{position:relative;width:86%;height:auto;filter:drop-shadow(0 0 12px rgba(145,222,255,.72)) drop-shadow(0 0 26px rgba(88,189,235,.42));transition:transform .22s ease-out;will-change:transform}
-.chalk.active .brain-aura{animation:brain8 8s ease-in-out infinite running}
-@keyframes brain8{0%,76%,100%{opacity:.7;transform:scale(.96)}86%{opacity:1;transform:scale(1.16)}92%{opacity:.82;transform:scale(1.02)}}
-.st{position:relative;z-index:4;display:flex;flex-direction:column;align-items:center;text-align:center;padding:8px 6px;cursor:pointer;color:#e8f6ff;transition:transform .32s var(--e),filter .32s ease;transform-origin:center;outline:none}
-.st:hover,.st:focus-visible{transform:scale(1.04)}
-.st.open{z-index:7;transform:scale(1.08);filter:drop-shadow(0 0 18px rgba(105,205,255,.55))}
-.st-q{grid-column:1;grid-row:1}.st-eq{grid-column:2;grid-row:1}.st-exp{grid-column:1;grid-row:3}.st-res{grid-column:2;grid-row:3}
-.st-lbl{font:600 clamp(.92rem,2.6vw,1.28rem)/1.25 var(--hand);color:#dff3ff;text-shadow:0 0 8px rgba(88,189,235,.45);margin-top:4px}
-.st-desc{max-height:0;opacity:0;overflow:hidden;transform:translateY(-4px);font:500 .78rem/1.4 var(--body);color:#bde6ff;max-width:230px;transition:opacity .28s ease,transform .28s var(--e),max-height .28s ease}
-.st.open .st-desc{max-height:90px;opacity:.95;transform:none;margin-top:5px}
-.q-mark{font:700 clamp(2.4rem,6vw,3.6rem)/1 'Fraunces',Georgia,serif;color:#eef9ff;text-shadow:0 0 14px rgba(108,210,255,.7);animation:qwake 8s ease-in-out infinite;animation-play-state:paused}
-.chalk.active .q-mark{animation-play-state:running}
-@keyframes qwake{0%,3%{transform:scale(1);text-shadow:0 0 10px rgba(108,210,255,.45)}11%{transform:scale(1.18) rotate(-4deg);text-shadow:0 0 24px #aef0ff}20%,100%{transform:scale(1);text-shadow:0 0 10px rgba(108,210,255,.45)}}
-.eq-stack{direction:ltr;display:flex;flex-direction:column;gap:3px;align-items:center}
-.eq-line{font:italic 600 clamp(.8rem,1.9vw,1.08rem)/1.25 'Fraunces',Georgia,serif;color:#e6f6ff;white-space:nowrap}
-.eq-line sup,.eq-line sub{font-size:.66em;line-height:0}
-.eq-line .ch{display:inline-block;opacity:.28;transform:translateY(2px);animation:eqch 8s calc(var(--ci,0) * 24ms) ease infinite;animation-play-state:paused}
-.chalk.active .eq-line .ch{animation-play-state:running}
-@keyframes eqch{0%,19%{opacity:.28;transform:translateY(2px);text-shadow:none}25%,90%{opacity:1;transform:none;text-shadow:0 0 9px rgba(120,214,255,.65)}96%,100%{opacity:.28;transform:translateY(2px)}}
-.exp-art{position:relative;width:clamp(88px,20vw,132px);aspect-ratio:4/3;display:grid;place-items:center}
-.exp-art img{width:100%;height:100%;object-fit:contain;filter:brightness(1.35) drop-shadow(0 0 8px rgba(110,210,255,.6));opacity:.88}
-.exp-trace{position:absolute;inset:0;width:100%;height:100%;fill:none;pointer-events:none}
-.exp-flow{stroke:#b8f3ff;stroke-width:2.2;stroke-linecap:round;stroke-dasharray:18 110;stroke-dashoffset:128;filter:drop-shadow(0 0 6px #7fe0ff);animation:curflow 8s linear infinite;animation-play-state:paused}
-.chalk.active .exp-flow{animation-play-state:running}
-@keyframes curflow{0%,39%{opacity:0;stroke-dashoffset:128}42%{opacity:1}59%{opacity:1;stroke-dashoffset:0}64%,100%{opacity:0;stroke-dashoffset:-24}}
-.res-art{display:flex;align-items:center;justify-content:center;gap:4px}
-.res-img{width:clamp(48px,11vw,72px);height:auto;filter:brightness(0) invert(1) drop-shadow(0 0 7px rgba(140,220,255,.65));opacity:.92}
-.res-gears{width:clamp(54px,12vw,76px);height:auto;fill:none;stroke:#eef8ff;stroke-width:2.2;stroke-linejoin:round;filter:drop-shadow(0 0 7px rgba(130,215,255,.6))}
-.g-cw{transform-origin:28px 30px;animation:gspin8 8s ease-in-out infinite;animation-play-state:paused}
-.g-ccw{transform-origin:56px 52px;animation:gspin8r 8s ease-in-out infinite;animation-play-state:paused}
-.chalk.active .g-cw,.chalk.active .g-ccw{animation-play-state:running}
-@keyframes gspin8{0%,58%{transform:rotate(0deg)}78%{transform:rotate(180deg)}100%{transform:rotate(180deg)}}
-@keyframes gspin8r{0%,58%{transform:rotate(0deg)}78%{transform:rotate(-240deg)}100%{transform:rotate(-240deg)}}
-@media(min-width:768px){
-  .chalk{padding:32px 34px 36px}
-  .chalk-arena{display:block;max-width:860px;height:520px;margin:10px auto 0}
-  .brain-hub{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:clamp(168px,19vw,210px)}
-  .st{position:absolute;width:33%}
-  .st.open{transform:scale(1.08)}
-  .st-q{left:4%;top:6%}
-  .st-eq{right:3%;top:6%;width:36%}
-  .st-exp{left:4%;bottom:5%}
-  .st-res{right:4%;bottom:5%}
-  .st-desc{max-width:260px;font-size:.82rem}
+.chalk-smudge{position:absolute;inset:0;background:radial-gradient(ellipse 32% 18% at 24% 28%,rgba(205,232,255,.55),transparent 70%),radial-gradient(ellipse 28% 14% at 76% 68%,rgba(195,228,255,.5),transparent 72%);filter:blur(10px)}
+.chalk-dust{position:absolute;inset:0;background-image:radial-gradient(circle at 14% 22%,#dff4ff 1px,transparent 1.4px),radial-gradient(circle at 82% 18%,#bfe8ff .9px,transparent 1.3px),radial-gradient(circle at 38% 78%,#dff4ff 1px,transparent 1.4px),radial-gradient(circle at 67% 84%,#bfe8ff .8px,transparent 1.2px);background-size:210px 180px}
+.ttl{position:relative;z-index:4;width:min(100%,540px);margin:0 auto 8px;text-align:center;padding:clamp(24px,3.6vw,32px) clamp(24px,5vw,44px) clamp(14px,2.2vw,20px);font:700 clamp(1.15rem,2.6vw,1.85rem)/1.25 var(--ser);color:#101d3a;text-shadow:0 1px 0 rgba(255,255,255,.45);background:url(assets/aistudio/1000036493-removebg-preview_b21bb3a8.png) 60.5% 48.4%/119.3% 390.6% no-repeat;filter:drop-shadow(0 10px 18px rgba(0,0,0,.48))}
+.chalk-arena{position:relative;z-index:3;margin-top:10px;display:flex;flex-direction:column;align-items:center;gap:16px}
+.chalk-arrows{display:none;position:absolute;inset:0;width:100%;height:100%;z-index:2;pointer-events:none;overflow:visible}
+.carrow{fill:none;stroke:rgba(165,228,255,.68);stroke-width:1.65;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;filter:drop-shadow(0 0 4px rgba(88,189,235,.45))}
+.chalk.go .carrow{animation:carrowDraw .85s calc(var(--ni,0) * 110ms + 240ms) ease forwards}
+@keyframes carrowDraw{to{stroke-dashoffset:0}}
+.brain-hub{position:relative;z-index:4;width:clamp(146px,36vw,196px);aspect-ratio:1;display:grid;place-items:center;margin:2px auto 6px}
+.brain-aura{position:absolute;inset:-18%;border-radius:50%;background:radial-gradient(closest-side,rgba(155,222,255,.52) 0%,rgba(88,189,235,.26) 48%,rgba(88,189,235,.05) 78%,transparent 100%);filter:blur(9px);animation:brain8 6s ease-in-out infinite;animation-play-state:paused;pointer-events:none}
+.bigbrain{position:relative;width:86%;height:auto;filter:drop-shadow(0 0 12px rgba(145,222,255,.7)) drop-shadow(0 0 26px rgba(88,189,235,.4));transition:transform .22s ease-out;will-change:transform}
+.brain-mag{position:absolute;inset-inline-end:-24%;bottom:-6%;width:clamp(62px,15vw,88px);height:auto;transform:rotate(-16deg);filter:drop-shadow(0 8px 14px rgba(0,0,0,.55));pointer-events:none;z-index:5}
+.chalk.active .brain-aura{animation-play-state:running}
+@keyframes brain8{0%,100%{opacity:.72;transform:scale(.96)}50%{opacity:1;transform:scale(1.12)}}
+.note{position:relative;z-index:4;width:min(100%,336px);opacity:0;transform:translateY(24px) rotate(var(--nr,0deg));filter:drop-shadow(0 12px 18px rgba(0,0,0,.55));transition:opacity .55s var(--e) calc(var(--ni,0) * 110ms),transform .45s var(--e) calc(var(--ni,0) * 110ms),filter .28s ease;cursor:pointer;outline:none}
+.chalk.go .note{opacity:1;transform:rotate(var(--nr,0deg))}
+.chalk.settled .note{transition:transform .28s var(--e),filter .28s ease,opacity .4s var(--e)}
+.note:hover,.note:focus-visible,.note.touch{transform:translateY(-7px) rotate(0deg) scale(1.025)!important;filter:drop-shadow(0 18px 28px rgba(0,0,0,.68));z-index:8}
+.note:nth-of-type(odd){--nr:-1.8deg}.note:nth-of-type(even){--nr:1.8deg}
+.note-sheet{position:relative;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:22px 24px;background-repeat:no-repeat;color:#101d3a;min-height:122px}
+.note-math .note-sheet,.note-lit .note-sheet{background-image:url(assets/aistudio/1000036495-removebg-preview_ebf3abf6.png);background-position:50.5% 50%;background-size:125.3% 271.7%}
+.note-art .note-sheet,.note-phys .note-sheet{background-image:url(assets/aistudio/1000036494-removebg-preview_d3bf0df6.png);background-position:50% 42.5%;background-size:118.6% 149.8%}
+.note-sci .note-sheet,.note-read .note-sheet{background-image:url(assets/aistudio/1000036496-removebg-preview_6c71efa9.png);background-position:20% 60%;background-size:101.9% 105%}
+.note-body{flex:1;min-width:0}
+.note-body h3{font:700 clamp(1.08rem,2vw,1.3rem)/1.25 var(--ser);color:#0e1b38;margin-bottom:3px}
+.note-body p{font:600 clamp(.94rem,1.6vw,1.1rem)/1.35 var(--hand);color:#1a2b52}
+.note-piece{width:76px;height:76px;object-fit:contain;flex-shrink:0;filter:drop-shadow(0 5px 8px rgba(0,0,0,.3))}
+.note-math .note-piece{width:84px;height:66px}
+.note-art .note-piece{width:86px;height:68px}
+.atom-wrap{position:relative;width:78px;height:78px;flex-shrink:0;display:grid;place-items:center}
+.atom-img{width:70px;height:70px;object-fit:contain;filter:drop-shadow(0 4px 8px rgba(0,0,0,.3));animation:atomSpin 28s linear infinite;animation-play-state:paused}
+.atom-orbit{position:absolute;inset:-4px;width:calc(100% + 8px);height:calc(100% + 8px);fill:none;stroke:rgba(62,145,214,.42);stroke-width:1.4;pointer-events:none;animation:atomSpinRev 20s linear infinite;animation-play-state:paused}
+.chalk.active .atom-img,.chalk.active .atom-orbit{animation-play-state:running}
+@keyframes atomSpin{to{transform:rotate(360deg)}}
+@keyframes atomSpinRev{to{transform:rotate(-360deg)}}
+.rabbi-wrap{position:relative;z-index:4;width:clamp(112px,26vw,154px);margin:-12px auto -18px;pointer-events:none}
+.rabbi-wrap img{width:100%;height:auto;display:block;filter:drop-shadow(0 4px 10px rgba(0,0,0,.5))}
+@media(min-width:860px){
+  .chalk{padding:28px 28px 18px}
+  .chalk-arena{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));grid-template-rows:auto auto auto;gap:24px 18px;align-items:center;max-width:980px;margin:12px auto 0}
+  .chalk-arrows{display:block}
+  .note{width:100%;max-width:none}
+  .note-math{grid-column:1/3;grid-row:1;--nr:-2.4deg}
+  .brain-hub{grid-column:3/5;grid-row:1/3;width:clamp(175px,18vw,218px);margin:0 auto}
+  .note-art{grid-column:5/7;grid-row:1;--nr:2.4deg}
+  .note-sci{grid-column:1/3;grid-row:2;--nr:2deg}
+  .note-lit{grid-column:5/7;grid-row:2;--nr:-2deg}
+  .note-phys{grid-column:2/4;grid-row:3;--nr:-1.5deg}
+  .note-read{grid-column:4/6;grid-row:3;--nr:1.8deg}
+  .rabbi-wrap{margin:-4px auto -20px}
 }
 /* 03 folders */
 .fold{display:flex;flex-direction:column;max-width:900px;margin:auto;padding-top:34px}
@@ -188,7 +180,7 @@ footer{background:#060d20;color:#c1cce0;padding:44px 6vw;text-align:center;displ
 .skip{position:fixed;top:-60px;left:12px;z-index:300;background:#fff;color:var(--n);padding:10px 16px;border-radius:10px;font-weight:800}.skip:focus{top:12px}:focus-visible{outline:3px solid var(--s);outline-offset:3px}
 @media(max-width:980px){.mb{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;border:0;background:#fff;color:var(--n);margin-inline-start:auto;font-size:1.2rem}.links{position:absolute;top:64px;inset-inline:0;flex-direction:column;padding:12px;border-radius:26px;background:rgba(10,21,48,.97);opacity:0;pointer-events:none;transform:translateY(-12px);transition:.35s}.links.open{opacity:1;pointer-events:auto;transform:none}.tools .clay{display:none}.jn{grid-template-columns:1fr}}
 @media(max-width:600px){.tp{width:82%;top:-8.5%;inset-inline-start:-5%}.campus{inset:13% 1% 10% 1%}.tpx{font-size:.76rem}.tpx small{font-size:.64rem}.bt{width:88%;bottom:4%}.btx{font-size:.72rem}.btx span:last-child{font-size:.86rem}.ph{width:30%}.cover{max-width:100%}.hero{padding-inline:14px;padding-top:78px}section{padding:100px 16px 70px}.cover{aspect-ratio:.8}.tile{grid-template-columns:1fr}.dt{flex-direction:row;align-items:center;justify-content:space-around}.dt small{padding:10px}.gl{flex-direction:column;align-items:flex-start;padding:20px}.gl img{width:100%;height:150px}.jrow{flex-direction:column;align-items:flex-start}}
-@media(prefers-reduced-motion:reduce){*{animation-duration:.001s!important;animation-delay:0s!important;transition-duration:.001s!important}.brain-aura,.q-mark,.exp-flow,.g-cw,.g-ccw,.tm-badge{animation:none!important}.cpath{stroke-dashoffset:0!important}.cnode,.eq-line .ch{opacity:1!important;transform:none!important;animation:none!important}.cpulse{display:none!important}.fo{opacity:1!important;transform:rotate(var(--fr,0deg))!important}}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.001s!important;animation-delay:0s!important;transition-duration:.001s!important}.brain-aura,.atom-img,.atom-orbit,.tm-badge{animation:none!important}.carrow{stroke-dashoffset:0!important}.note{opacity:1!important;transform:rotate(var(--nr,0deg))!important}.fo{opacity:1!important;transform:rotate(var(--fr,0deg))!important}}
 
 /* v4 real-asset layer */
 .cmp{display:none}.compass{position:absolute;width:min(17%,140px);inset-inline-end:1%;top:40%;z-index:6;filter:drop-shadow(0 12px 16px #000a);animation:spn 12s ease-in-out infinite alternate}
@@ -270,26 +262,20 @@ footer{background:#060d20;color:#c1cce0;padding:44px 6vw;text-align:center;displ
 <section id="ideas"><i class="pgn">02</i><div class="hd rv"><p class="eb" data-k="e2">02 / لوحة الأفكار</p><h2 data-k="h2">الفضول أرضنا المشتركة.</h2><p data-k="p2"></p></div>
 <div class="chalk rv" id="bd">
 <div class="chalk-bg" aria-hidden="true"><div class="chalk-grid"></div><div class="chalk-smudge"></div><div class="chalk-dust"></div></div>
-<div class="ttl" data-k="q1">من الأفكار… إلى الواقع</div>
-<p class="chalk-motto" data-k="k2">العلم × الإبداع</p>
-<div class="chalk-arena">
-<svg class="chalk-links" id="chalkSvg" viewBox="0 0 860 520" preserveAspectRatio="none" aria-hidden="true">
-<path class="cpath" id="cp1" style="--d:0s" pathLength="1" d="M352 222Q314 190 272 164"/>
-<path class="cpath" id="cp2" style="--d:.18s" pathLength="1" d="M508 222Q546 190 588 164"/>
-<path class="cpath" id="cp3" style="--d:.36s" pathLength="1" d="M352 298Q314 330 272 356"/>
-<path class="cpath" id="cp4" style="--d:.54s" pathLength="1" d="M508 298Q546 330 588 356"/>
-<circle class="cnode" style="--d:0s" cx="272" cy="164" r="4.5"/><circle class="cnode" style="--d:.18s" cx="588" cy="164" r="4.5"/><circle class="cnode" style="--d:.36s" cx="272" cy="356" r="4.5"/><circle class="cnode" style="--d:.54s" cx="588" cy="356" r="4.5"/>
-<circle class="cpulse" r="4.5"><animateMotion dur="8s" repeatCount="indefinite" keyPoints="0;1;1" keyTimes="0;0.1;1" calcMode="linear"><mpath href="#cp1"/></animateMotion><animate attributeName="opacity" dur="8s" repeatCount="indefinite" values="0;1;1;0;0" keyTimes="0;0.015;0.09;0.11;1"/></circle>
-<circle class="cpulse" r="4.5"><animateMotion dur="8s" repeatCount="indefinite" keyPoints="0;0;1;1" keyTimes="0;0.2;0.3;1" calcMode="linear"><mpath href="#cp2"/></animateMotion><animate attributeName="opacity" dur="8s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0;0.19;0.21;0.29;0.31;1"/></circle>
-<circle class="cpulse" r="4.5"><animateMotion dur="8s" repeatCount="indefinite" keyPoints="0;0;1;1" keyTimes="0;0.4;0.5;1" calcMode="linear"><mpath href="#cp3"/></animateMotion><animate attributeName="opacity" dur="8s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0;0.39;0.41;0.49;0.51;1"/></circle>
-<circle class="cpulse" r="4.5"><animateMotion dur="8s" repeatCount="indefinite" keyPoints="0;0;1;1" keyTimes="0;0.6;0.7;1" calcMode="linear"><mpath href="#cp4"/></animateMotion><animate attributeName="opacity" dur="8s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0;0.59;0.61;0.69;0.71;1"/></circle>
-</svg>
-<div class="brain-hub"><div class="brain-aura" aria-hidden="true"></div><img class="bigbrain" src="assets/aistudio/file_00000000fc3881f4b4f0c3d532ba170e_2dec6d87.png" alt="AstraMind Brain"></div>
-<div class="st st-q" role="button" tabindex="0" aria-expanded="false"><span class="q-mark" aria-hidden="true">?</span><span class="st-lbl" data-k="k1">ماذا لو دقّقنا النظر؟</span><span class="st-desc" data-k="s2qd">نبدأ بسؤال جريء يكشف ما وراء الظاهر.</span></div>
-<div class="st st-eq" role="button" tabindex="0" aria-expanded="false"><div class="eq-stack"><div class="eq-line">iℏ ∂ψ/∂t = Ĥψ</div><div class="eq-line">E = mc<sup>2</sup> · e<sup>iπ</sup> + 1 = 0</div><div class="eq-line">∇ · E = ρ / ε<sub>0</sub></div></div><span class="st-lbl" data-k="s2et">معادلات الفهم</span><span class="st-desc" data-k="s2ed">نصوغ الفضول في لغة رياضية وفيزيائية دقيقة.</span></div>
-<div class="st st-exp" role="button" tabindex="0" aria-expanded="false"><div class="exp-art"><img src="assets/kit/circuit1.png" alt=""><svg class="exp-trace" viewBox="0 0 120 90" aria-hidden="true"><path class="exp-flow" pathLength="128" d="M12 22H56V46H98V72H26V46"/></svg></div><span class="st-lbl" data-k="s2xt">تجربة ومختبر</span><span class="st-desc" data-k="s2xd">نختبر الفرضيات بالدارات والنمذجة والمحاكاة.</span></div>
-<div class="st st-res" role="button" tabindex="0" aria-expanded="false"><div class="res-art"><img class="res-img" src="assets/kit/gears.png" alt=""><svg class="res-gears" viewBox="0 0 88 80" aria-hidden="true"><g class="g-cw"><path d="M25 10h6l1.5 4.5a14 14 0 0 1 4 1.5l3.5-3 4 3-1.5 4.5a14 14 0 0 1 2.5 3.5l4.5-1 2 4.5-4 2.5a14 14 0 0 1 0 4l4 2.5-2 4.5-4.5-1a14 14 0 0 1-2.5 3.5l1.5 4.5-4 3-3.5-3a14 14 0 0 1-4 1.5L31 50h-6l-1.5-4.5a14 14 0 0 1-4-1.5l-3.5 3-4-3 1.5-4.5a14 14 0 0 1-2.5-3.5l-4.5 1-2-4.5 4-2.5a14 14 0 0 1 0-4l-4-2.5 2-4.5 4.5 1a14 14 0 0 1 2.5-3.5L12 16l4-3 3.5 3a14 14 0 0 1 4-1.5Z"/><circle cx="28" cy="30" r="6"/></g><g class="g-ccw"><path d="M54 37h4l1 3.5a10 10 0 0 1 3 1l2.5-2.5 3 2-1 3.5a10 10 0 0 1 1.5 3l3.5 1v4l-3.5 1a10 10 0 0 1-1.5 3l1 3.5-3 2-2.5-2.5a10 10 0 0 1-3 1L58 67h-4l-1-3.5a10 10 0 0 1-3-1l-2.5 2.5-3-2 1-3.5a10 10 0 0 1-1.5-3l-3.5-1v-4l3.5-1a10 10 0 0 1 1.5-3l-1-3.5 3-2 2.5 2.5a10 10 0 0 1 3-1Z"/><circle cx="56" cy="52" r="4.2"/></g></svg></div><span class="st-lbl" data-k="s2rt">نبنيها فعلاً</span><span class="st-desc" data-k="s2rd">نحوّل المعادلة والدارة إلى مشاريع ملموسة في النادي.</span></div>
-</div></div></section>
+<canvas class="chalk-net" id="chalkNet" aria-hidden="true"></canvas>
+<div class="ttl" data-k="q1">من فكرة… نبدأ رحلة الإبداع</div>
+<div class="chalk-arena" id="chalkArena">
+<svg class="chalk-arrows" id="chalkArrows" aria-hidden="true"></svg>
+<div class="brain-hub"><div class="brain-aura" aria-hidden="true"></div><img class="bigbrain" src="assets/aistudio/file_00000000fc3881f4b4f0c3d532ba170e_2dec6d87.png" alt="AstraMind Brain"><img class="brain-mag" src="assets/kit/magnifier.png" alt=""></div>
+<article class="note note-math" style="--ni:0" tabindex="0"><div class="note-sheet"><div class="note-body"><h3 data-k="s2_m_t">الرياضيات</h3><p data-k="s2_m_d">أفكار لا تنتهي من الأرقام…</p></div><img class="note-piece" src="assets/kit/protractor.png" alt=""></div></article>
+<article class="note note-art" style="--ni:1" tabindex="0"><div class="note-sheet"><div class="note-body"><h3 data-k="s2_a_t">الرسم</h3><p data-k="s2_a_d">لنرسم أفكارنا بالألوان…</p></div><img class="note-piece" src="assets/kit/palette.png" alt=""></div></article>
+<article class="note note-sci" style="--ni:2" tabindex="0"><div class="note-sheet"><div class="note-body"><h3 data-k="s2_s_t">العلوم</h3><p data-k="s2_s_d">اكتشف أسرار العالم…</p></div><img class="note-piece" src="assets/kit/microscope.png" alt=""></div></article>
+<article class="note note-lit" style="--ni:3" tabindex="0"><div class="note-sheet"><div class="note-body"><h3 data-k="s2_l_t">الشعر والأدب</h3><p data-k="s2_l_d">بكلماتنا نعبّر…</p></div><img class="note-piece" src="assets/kit/quill.png" alt=""></div></article>
+<article class="note note-phys" style="--ni:4" tabindex="0"><div class="note-sheet"><div class="note-body"><h3 data-k="s2_p_t">الفيزياء</h3><p data-k="s2_p_d">لنكتشف قوانين الكون…</p></div><div class="atom-wrap"><img class="atom-img" src="assets/kit/atom.png" alt=""><svg class="atom-orbit" viewBox="0 0 100 100" aria-hidden="true"><ellipse cx="50" cy="50" rx="45" ry="18" transform="rotate(-26 50 50)"/><ellipse cx="50" cy="50" rx="45" ry="18" transform="rotate(34 50 50)"/></svg></div></div></article>
+<article class="note note-read" style="--ni:5" tabindex="0"><div class="note-sheet"><div class="note-body"><h3 data-k="s2_r_t">القراءة</h3><p data-k="s2_r_d">عوالم بين الصفحات…</p></div><img class="note-piece" src="assets/kit/books.png" alt=""></div></article>
+</div>
+<div class="rabbi-wrap"><img src="assets/kit/rabbi-zidni.png" alt="ربِّ زدني علماً"></div>
+</div></section>
 <section id="activities"><i class="pgn">03</i><div class="hd rv"><p class="eb" data-k="e3">03 / ملفات العمل</p><h2 data-k="h3">أفكار في حركة.</h2><p data-k="p3"></p></div>
 <div class="fold" id="fold">
 <article class="fo" role="button" tabindex="0" aria-expanded="false"><span class="tab" data-k="fl1">ورشات</span><i class="cl" aria-hidden="true"></i><div class="pg" data-no="01"><div><h3 data-k="a1">ورشات وندوات</h3><p data-k="a1p"></p></div><img src="assets/kit/lab.jpg" alt=""></div></article>
@@ -328,16 +314,13 @@ const AR={
   e2:'02 / لوحة الأفكار',
   h2:'الفضول أرضنا المشتركة.',
   p2:'يجمع نادي AstraMind الطلبة الشغوفين باستكشاف العلوم والتكنولوجيا والتعليم، والروابط غير المتوقعة بينها.',
-  q1:'من الأفكار… إلى الواقع',
-  k1:'ماذا لو دقّقنا النظر؟',
-  k2:'العلم × الإبداع',
-  s2qd:'نبدأ بسؤال جريء يكشف ما وراء الظاهر.',
-  s2et:'معادلات الفهم',
-  s2ed:'نصوغ الفضول في لغة رياضية وفيزيائية دقيقة.',
-  s2xt:'تجربة ومختبر',
-  s2xd:'نختبر الفرضيات بالدارات والنمذجة والمحاكاة.',
-  s2rt:'نبنيها فعلاً',
-  s2rd:'نحوّل المعادلة والدارة إلى مشاريع ملموسة في النادي.',
+  q1:'من فكرة… نبدأ رحلة الإبداع',
+  s2_m_t:'الرياضيات',s2_m_d:'أفكار لا تنتهي من الأرقام…',
+  s2_s_t:'العلوم',s2_s_d:'اكتشف أسرار العالم…',
+  s2_a_t:'الرسم',s2_a_d:'لنرسم أفكارنا بالألوان…',
+  s2_l_t:'الشعر والأدب',s2_l_d:'بكلماتنا نعبّر…',
+  s2_r_t:'القراءة',s2_r_d:'عوالم بين الصفحات…',
+  s2_p_t:'الفيزياء',s2_p_d:'لنكتشف قوانين الكون…',
   e3:'03 / ملفات العمل',
   h3:'أفكار في حركة.',
   p3:'من أول رسمٍ تخطيطي إلى نتيجةٍ مشتركة — أنشطتنا تحوّل الفضول إلى ممارسة.',
@@ -384,16 +367,13 @@ const EN={
   e2:'02 / Idea Board',
   h2:'Curiosity is our common ground.',
   p2:'AstraMind brings together students eager to explore science, technology, education, and the unexpected connections between them.',
-  q1:'From ideas… to reality',
-  k1:'What if we look closer?',
-  k2:'Science × Creativity',
-  s2qd:'Every project starts with a bold question.',
-  s2et:'Equations of insight',
-  s2ed:'Turning curiosity into precise mathematical and physical form.',
-  s2xt:'Experiment & lab',
-  s2xd:'Testing ideas through circuits, prototypes, and simulation.',
-  s2rt:'Build it for real',
-  s2rd:'Transforming equations and prototypes into tangible club projects.',
+  q1:'From an idea… our creative journey begins',
+  s2_m_t:'Mathematics',s2_m_d:'Endless ideas built from numbers…',
+  s2_s_t:'Science',s2_s_d:'Uncover the secrets of the world…',
+  s2_a_t:'Painting & Art',s2_a_d:'Let us paint our ideas in color…',
+  s2_l_t:'Poetry & Literature',s2_l_d:'Through our words, we express…',
+  s2_r_t:'Reading',s2_r_d:'Worlds within every page…',
+  s2_p_t:'Physics',s2_p_d:'Let us explore the laws of the universe…',
   e3:'03 / Work Folders',
   h3:'Ideas in motion.',
   p3:'From the first sketch to a shared outcome — our activities turn curiosity into practice.',
@@ -427,7 +407,7 @@ const EN={
   ft:'Science & Innovation Club · Higher Teachers’ School (ENS) Béjaïa'
 };
 let L='ar';
-function setL(l){L=l;document.documentElement.lang=l;document.documentElement.dir=l=='ar'?'rtl':'ltr';document.title=l=='ar'?'AstraMind — نادي العلوم والابتكار · المدرسة العليا للأساتذة بجاية':'AstraMind — Science & Innovation Club · ENS Béjaïa';$$('[data-k]').forEach(e=>{const val=(l=='ar'?AR:EN)[e.dataset.k];if(val!==undefined)e.textContent=val});$('#lang').textContent=l=='ar'?'English':'العربية';$('#lang').dataset.l=l;render();if(typeof syncMod==='function')syncMod()}
+function setL(l){L=l;document.documentElement.lang=l;document.documentElement.dir=l=='ar'?'rtl':'ltr';document.title=l=='ar'?'AstraMind — نادي العلوم والابتكار · المدرسة العليا للأساتذة بجاية':'AstraMind — Science & Innovation Club · ENS Béjaïa';$$('[data-k]').forEach(e=>{const val=(l=='ar'?AR:EN)[e.dataset.k];if(val!==undefined)e.textContent=val});$('#lang').textContent=l=='ar'?'English':'العربية';$('#lang').dataset.l=l;render();if(typeof syncMod==='function')syncMod();if(typeof drawArrows==='function')requestAnimationFrame(drawArrows)}
 $('#lang').onclick=()=>{setL(L=='en'?'ar':'en');localStorage.astra_lang=L};
 $('#mb').onclick=()=>$('#nv').classList.toggle('open');$$('#nv a').forEach(a=>a.onclick=()=>$('#nv').classList.remove('open'));
 
@@ -436,17 +416,115 @@ const J=(n,a,b,f)=>Array.from({length:n+1},(_,i)=>f(i/n*100,a+Math.random()*(b-a
 
 const rm=matchMedia('(prefers-reduced-motion:reduce)');
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in','go');io.unobserve(e.target)}}),{threshold:.18});$$('.rv,.art').forEach(e=>io.observe(e));
-const bd=$('#bd'),chalkSvg=$('#chalkSvg'),brain=$('.bigbrain'),sts=$$('.st'),fold=$('#fold'),fos=$$('.fo');
-{let ci=0;const wrap=n=>{[...n.childNodes].forEach(c=>{if(c.nodeType===3){const frag=document.createDocumentFragment();for(const ch of c.textContent){if(ch===' ')frag.appendChild(document.createTextNode(' '));else{const s=document.createElement('span');s.className='ch';s.style.setProperty('--ci',ci++);s.textContent=ch;frag.appendChild(s)}}c.replaceWith(frag)}else if(c.nodeType===1)wrap(c)})};$$('.eq-line').forEach(wrap)}
-if(chalkSvg&&rm.matches)try{chalkSvg.pauseAnimations()}catch(e){}
-if(bd){const bio=new IntersectionObserver(es=>es.forEach(e=>{const on=e.isIntersecting;bd.classList.toggle('active',on);if(on)bd.classList.add('go');if(chalkSvg)try{on&&!rm.matches?chalkSvg.unpauseAnimations():chalkSvg.pauseAnimations()}catch(err){}}),{threshold:.1});bio.observe(bd);
- const tiltBrain=(cx,cy)=>{if(rm.matches||!bd.classList.contains('active')||!brain)return;const r=bd.getBoundingClientRect(),x=(cx-r.left)/r.width-.5,y=(cy-r.top)/r.height-.5;brain.style.transform=`perspective(600px) rotateY(${(x*16).toFixed(1)}deg) rotateX(${(-y*14).toFixed(1)}deg)`};
- bd.addEventListener('pointermove',e=>tiltBrain(e.clientX,e.clientY),{passive:true});bd.addEventListener('pointerleave',()=>{if(brain)brain.style.transform=''});
- bd.addEventListener('touchmove',e=>{if(e.touches[0])tiltBrain(e.touches[0].clientX,e.touches[0].clientY)},{passive:true});bd.addEventListener('touchend',()=>{if(brain)brain.style.transform=''});
- const toggleSt=st=>{const was=st.classList.contains('open');sts.forEach(x=>{x.classList.remove('open');x.setAttribute('aria-expanded','false')});if(!was){st.classList.add('open');st.setAttribute('aria-expanded','true')}};
- sts.forEach(st=>{st.addEventListener('click',e=>{e.stopPropagation();toggleSt(st)});st.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();toggleSt(st)}})});
- bd.addEventListener('click',()=>sts.forEach(x=>{x.classList.remove('open');x.setAttribute('aria-expanded','false')}));
- document.addEventListener('keydown',e=>{if(e.key==='Escape')sts.forEach(x=>{x.classList.remove('open');x.setAttribute('aria-expanded','false')})})}
+const bd=$('#bd'),arena=$('#chalkArena'),arrowsSvg=$('#chalkArrows'),brain=$('.bigbrain'),brainHub=$('.brain-hub'),notes=$$('.note'),fold=$('#fold'),fos=$$('.fo');
+function drawArrows(){
+ if(!arena||!arrowsSvg||!brainHub)return;
+ if(innerWidth<860){arrowsSvg.innerHTML='';return}
+ const aw=arena.offsetWidth,ah=arena.offsetHeight;
+ if(!aw||!ah)return;
+ const bx=brainHub.offsetLeft+brainHub.offsetWidth/2,by=brainHub.offsetTop+brainHub.offsetHeight/2,br=Math.max(brainHub.offsetWidth,brainHub.offsetHeight)*.46;
+ let out=`<defs><marker id="chalkArr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto"><path d="M1 1.5L8.5 5L1 8.5" fill="none" stroke="rgba(165,228,255,.82)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>`;
+ notes.forEach((n,i)=>{
+  const nw=n.offsetWidth,nh=n.offsetHeight,nx=n.offsetLeft+nw/2,ny=n.offsetTop+nh/2;
+  const dx=bx-nx,dy=by-ny,dist=Math.hypot(dx,dy)||1,ux=dx/dist,uy=dy/dist;
+  const edge=Math.min((nw/2)/(Math.abs(ux)||.01),(nh/2)/(Math.abs(uy)||.01))+8;
+  const sx=nx+ux*edge,sy=ny+uy*edge,ex=bx-ux*br,ey=by-uy*br;
+  const curve=(i%2?1:-1)*Math.min(28,dist*.14),mx=(sx+ex)/2-uy*curve,my=(sy+ey)/2+ux*curve;
+  out+=`<path class="carrow" style="--ni:${i}" pathLength="1" marker-end="url(#chalkArr)" d="M${sx.toFixed(1)} ${sy.toFixed(1)} Q${mx.toFixed(1)} ${my.toFixed(1)} ${ex.toFixed(1)} ${ey.toFixed(1)}"/>`;
+ });
+ arrowsSvg.setAttribute('viewBox',`0 0 ${aw} ${ah}`);
+ arrowsSvg.innerHTML=out;
+}
+if(bd){
+ const net=$('#chalkNet'),ctx=net&&net.getContext('2d');
+ let nw=0,nh=0,dpr=1,nodes=[],rafNet=0,inView=false,pt={x:0,y:0,on:false};
+ const seedNet=()=>{
+  if(!net||!ctx)return;
+  const r=bd.getBoundingClientRect();
+  const nextW=Math.max(1,Math.round(r.width)),nextH=Math.max(1,Math.round(r.height));
+  if(nodes.length&&Math.abs(nextW-nw)<4&&Math.abs(nextH-nh)<4)return;
+  nw=nextW;nh=nextH;
+  dpr=Math.min(devicePixelRatio||1,2);
+  net.width=Math.round(nw*dpr);net.height=Math.round(nh*dpr);
+  ctx.setTransform(dpr,0,0,dpr,0,0);
+  const count=Math.max(26,Math.min(62,Math.round((nw*nh)/14500)));
+  nodes=Array.from({length:count},()=>{
+   const hx=18+Math.random()*(nw-36),hy=18+Math.random()*(nh-36);
+   return{hx,hy,x:hx,y:hy,vx:0,vy:0,r:1.3+Math.random()*1.1,ba:.38+Math.random()*.32,px:Math.random()*6.28,py:Math.random()*6.28,sx:.00045+Math.random()*.00045,sy:.0004+Math.random()*.00045,glow:0};
+  });
+ };
+ const drawNet=(ts,animate)=>{
+  if(!ctx||!nw||!nh)return;
+  ctx.clearRect(0,0,nw,nh);
+  const attractR=Math.min(180,Math.max(125,nw*.18)),linkDist=nw<640?115:138,t=ts||0;
+  for(let i=0;i<nodes.length;i++){
+   const p=nodes[i];
+   if(animate){
+    const tx=p.hx+Math.sin(t*p.sx+p.px)*14,ty=p.hy+Math.cos(t*p.sy+p.py)*14;
+    let ax=(tx-p.x)*.026,ay=(ty-p.y)*.026,tg=0;
+    if(pt.on){
+     const dx=pt.x-p.x,dy=pt.y-p.y,d=Math.hypot(dx,dy);
+     if(d<attractR&&d>1){
+      const k=1-d/attractR,pull=k*(1-Math.exp(-d/26))*.065;
+      ax+=dx/d*pull*attractR*.18;ay+=dy/d*pull*attractR*.18;tg=k;
+     }
+    }
+    p.vx=(p.vx+ax)*.84;p.vy=(p.vy+ay)*.84;p.x+=p.vx;p.y+=p.vy;
+    p.glow+=(tg-p.glow)*.12;
+   }else{p.x=p.hx;p.y=p.hy;p.glow=0}
+  }
+  ctx.lineWidth=.85;
+  for(let i=0;i<nodes.length;i++){
+   const a=nodes[i];
+   for(let j=i+1;j<nodes.length;j++){
+    const b=nodes[j],dx=a.x-b.x,dy=a.y-b.y,d2=dx*dx+dy*dy;
+    if(d2<linkDist*linkDist){
+     const d=Math.sqrt(d2),s=1-d/linkDist,g=Math.max(a.glow,b.glow),al=s*(.2+g*.48);
+     ctx.strokeStyle=`rgba(${Math.round(125+g*75)},${Math.round(210+g*32)},255,${al.toFixed(3)})`;
+     ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();
+    }
+   }
+  }
+  for(let i=0;i<nodes.length;i++){
+   const p=nodes[i],g=p.glow;
+   if(g>.02||p.ba>.45){
+    ctx.fillStyle=`rgba(105,202,255,${(.08+g*.26).toFixed(3)})`;
+    ctx.beginPath();ctx.arc(p.x,p.y,p.r*(2.6+g*3.2),0,6.283);ctx.fill();
+   }
+   ctx.fillStyle=`rgba(165,228,255,${(.18+g*.34).toFixed(3)})`;
+   ctx.beginPath();ctx.arc(p.x,p.y,p.r*(1.5+g*1.3),0,6.283);ctx.fill();
+   ctx.fillStyle=`rgba(230,248,255,${(p.ba+g*(1-p.ba)).toFixed(3)})`;
+   ctx.beginPath();ctx.arc(p.x,p.y,p.r+g*.9,0,6.283);ctx.fill();
+  }
+ };
+ const stepNet=ts=>{rafNet=0;if(!inView||document.hidden||rm.matches)return;drawNet(ts,true);rafNet=requestAnimationFrame(stepNet)};
+ const syncNet=()=>{
+  if(rafNet){cancelAnimationFrame(rafNet);rafNet=0}
+  if(!net)return;
+  if(!nodes.length)seedNet();
+  if(rm.matches){pt.on=false;drawNet(0,false);return}
+  if(inView&&!document.hidden)rafNet=requestAnimationFrame(stepNet);
+ };
+ seedNet();
+ const bio=new IntersectionObserver(es=>es.forEach(e=>{inView=e.isIntersecting;bd.classList.toggle('active',inView);if(inView&&!bd.classList.contains('go')){bd.classList.add('go');drawArrows();setTimeout(()=>bd.classList.add('settled'),1200)}syncNet()}),{threshold:.05});bio.observe(bd);
+ document.addEventListener('visibilitychange',syncNet);
+ rm.addEventListener?.('change',syncNet);
+ addEventListener('resize',()=>{drawArrows();seedNet();if(rm.matches)drawNet(0,false)},{passive:true});
+ const setPt=(cx,cy)=>{if(rm.matches||!inView)return;const r=bd.getBoundingClientRect();pt.x=cx-r.left;pt.y=cy-r.top;pt.on=pt.x>=0&&pt.y>=0&&pt.x<=r.width&&pt.y<=r.height};
+ const tiltBrain=(cx,cy)=>{if(rm.matches||!bd.classList.contains('active')||!brain)return;const r=bd.getBoundingClientRect(),x=(cx-r.left)/r.width-.5,y=(cy-r.top)/r.height-.5;brain.style.transform=`perspective(600px) rotateY(${(x*14).toFixed(1)}deg) rotateX(${(-y*12).toFixed(1)}deg)`};
+ bd.addEventListener('pointermove',e=>{tiltBrain(e.clientX,e.clientY);setPt(e.clientX,e.clientY)},{passive:true});
+ bd.addEventListener('pointerleave',()=>{pt.on=false;if(brain)brain.style.transform=''});
+ bd.addEventListener('touchstart',e=>{if(e.touches[0])setPt(e.touches[0].clientX,e.touches[0].clientY)},{passive:true});
+ bd.addEventListener('touchmove',e=>{if(e.touches[0]){tiltBrain(e.touches[0].clientX,e.touches[0].clientY);setPt(e.touches[0].clientX,e.touches[0].clientY)}},{passive:true});
+ bd.addEventListener('touchend',()=>{pt.on=false;if(brain)brain.style.transform=''});
+ bd.addEventListener('touchcancel',()=>{pt.on=false});
+ notes.forEach(n=>{
+  n.addEventListener('click',e=>{e.stopPropagation();const had=n.classList.contains('touch');notes.forEach(x=>x.classList.remove('touch'));if(!had)n.classList.add('touch')});
+  n.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();n.click()}});
+ });
+ bd.addEventListener('click',()=>notes.forEach(x=>x.classList.remove('touch')));
+ requestAnimationFrame(drawArrows);
+}
 if(fold){const fio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){fold.classList.add('in');setTimeout(()=>fold.classList.add('settled'),950);fio.unobserve(fold)}}),{threshold:.15});fio.observe(fold)}
 const tmWrap=$('#tm');
 if(tmWrap){const tio=new IntersectionObserver(es=>es.forEach(e=>tmWrap.classList.toggle('active',e.isIntersecting)),{threshold:.08});tio.observe(tmWrap);

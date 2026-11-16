@@ -79,7 +79,7 @@ section{position:relative;padding:120px max(6vw,22px) 90px;min-height:80vh}.pgn{
 .chalk.active .atom-img,.chalk.active .atom-orbit{animation-play-state:running}
 @keyframes atomSpin{to{transform:rotate(360deg)}}
 @keyframes atomSpinRev{to{transform:rotate(-360deg)}}
-.rabbi-wrap{position:relative;z-index:4;width:clamp(112px,26vw,154px);margin:-12px auto -18px;pointer-events:none}
+.rabbi-wrap{position:relative;z-index:4;width:clamp(112px,26vw,154px);margin:-12px auto -18px}
 .rabbi-wrap img{width:100%;height:auto;display:block;filter:drop-shadow(0 4px 10px rgba(0,0,0,.5))}
 @media(min-width:860px){
   .chalk{padding:28px 28px 18px}
@@ -274,7 +274,7 @@ footer{background:#060d20;color:#c1cce0;padding:44px 6vw;text-align:center;displ
 <article class="note note-phys" style="--ni:4" tabindex="0"><div class="note-sheet"><div class="note-body"><h3 data-k="s2_p_t">الفيزياء</h3><p data-k="s2_p_d">لنكتشف قوانين الكون…</p></div><div class="atom-wrap"><img class="atom-img" src="assets/kit/atom.png" alt=""><svg class="atom-orbit" viewBox="0 0 100 100" aria-hidden="true"><ellipse cx="50" cy="50" rx="45" ry="18" transform="rotate(-26 50 50)"/><ellipse cx="50" cy="50" rx="45" ry="18" transform="rotate(34 50 50)"/></svg></div></div></article>
 <article class="note note-read" style="--ni:5" tabindex="0"><div class="note-sheet"><div class="note-body"><h3 data-k="s2_r_t">القراءة</h3><p data-k="s2_r_d">عوالم بين الصفحات…</p></div><img class="note-piece" src="assets/kit/books.png" alt=""></div></article>
 </div>
-<div class="rabbi-wrap"><img src="assets/kit/rabbi-zidni.png" alt="ربِّ زدني علماً"></div>
+<div class="rabbi-wrap" id="rzGate"><img src="assets/kit/rabbi-zidni.png" alt="ربِّ زدني علماً"></div>
 </div></section>
 <section id="activities"><i class="pgn">03</i><div class="hd rv"><p class="eb" data-k="e3">03 / ملفات العمل</p><h2 data-k="h3">أفكار في حركة.</h2><p data-k="p3"></p></div>
 <div class="fold" id="fold">
@@ -578,5 +578,6 @@ document.addEventListener('click',e=>{const a=e.target.closest('a[href^="#"]'),i
 $('#yr').textContent=new Date().getFullYear();
 if(localStorage.astra_lang=='en')setL('en');else setL('ar');
 const S=window.ASTRA_SB;if(S)fetch(`${S.url}/rest/v1/site_content?id=eq.1&select=data`,{headers:{apikey:S.key}}).then(r=>r.ok?r.json():[]).then(a=>{const d=a[0]&&a[0].data;if(d&&Object.keys(d).length&&!DR){D={...(window.ASTRA_DATA||{}),...d};if(Array.isArray(d.team)&&!d.team.length&&!d._teamInit&&window.ASTRA_DATA?.team?.length)D.team=window.ASTRA_DATA.team;render()}}).catch(()=>{});
+$('#rzGate')?.addEventListener('click',()=>{location.href='v7q-notes-83p.html'});
 render();
 </script></body></html>

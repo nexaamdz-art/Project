@@ -1,7 +1,10 @@
-// Sends the acceptance / rejection email through Resend. Called ONLY by the admin panel.
+// Sends the acceptance / rejection email through Gmail (Apps Script webhook, NO domain needed) or Resend. Called ONLY by the admin panel.
 // Deploy:  supabase functions deploy send-decision --no-verify-jwt
-// Secrets: supabase secrets set RESEND_API_KEY=re_xxx FROM_EMAIL="AstraMind <club@yourdomain.com>" ADMIN_EMAIL=you@mail.com
-//          optional: REPLY_TO=club@mail.com  CLUB_LINK=https://chat.whatsapp.com/xxxx  SITE_URL=https://your-site.com
+// Gmail Secrets (no domain needed):
+//   supabase secrets set GMAIL_WEBHOOK_URL=https://script.google.com/macros/s/xxx/exec GMAIL_SECRET=your_secret ADMIN_EMAIL=nexa.am.dz@gmail.com
+// Or Resend Secrets (requires verified domain):
+//   supabase secrets set RESEND_API_KEY=re_xxx FROM_EMAIL="AstraMind <club@yourdomain.com>" ADMIN_EMAIL=you@mail.com
+// Optional: REPLY_TO=club@mail.com  CLUB_LINK=https://chat.whatsapp.com/xxxx  SITE_URL=https://your-site.com
 import { createClient } from 'npm:@supabase/supabase-js@2'
 
 const cors = {
@@ -46,12 +49,38 @@ Deno.serve(async (req) => {
 
     const m = build(r.name, r.lang, status, Deno.env.get('CLUB_LINK') || '', Deno.env.get('SITE_URL') || '')
     const reply = Deno.env.get('REPLY_TO')
-    const res = await fetch('https://api.resend.com/emails', {
-      method: 'POST',
-      headers: { Authorization: `Bearer ${Deno.env.get('RESEND_API_KEY')}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify({ from: Deno.env.get('FROM_EMAIL'), to: [r.email], subject: m.subject, html: m.html, ...(reply ? { reply_to: [reply] } : {}) }),
-    })
-    if (!res.ok) return json({ error: 'resend_failed', detail: (await res.text()).slice(0, 300) }, 502)
+    const gmailUrl = Deno.env.get('GMAIL_WEBHOOK_URL')
+
+    if (gmailUrl) {
+      const res = await fetch(gmailUrl, {
+        method: 'POST',
+        redirect: 'follow',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          secret: Deno.env.get('GMAIL_SECRET') || '',
+          to: r.email,
+          subject: m.subject,
+          html: m.html,
+          replyTo: reply || admin,
+        }),
+      })
+      const txt = await res.text()
+      let parsed: { ok?: boolean; error?: string } | null = null
+      try { parsed = JSON.parse(txt) } catch { /* ignore */ }
+      if (!res.ok || !parsed?.ok) {
+        return json({ error: 'gmail_failed', detail: (parsed?.error || txt).slice(0, 300) }, 502)
+      }
+    } else {
+      const resendKey = Deno.env.get('RESEND_API_KEY')
+      if (!resendKey) return json({ error: 'missing_email_provider' }, 500)
+      const res = await fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: { Authorization: `Bearer ${resendKey}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ from: Deno.env.get('FROM_EMAIL'), to: [r.email], subject: m.subject, html: m.html, ...(reply ? { reply_to: [reply] } : {}) }),
+      })
+      if (!res.ok) return json({ error: 'resend_failed', detail: (await res.text()).slice(0, 300) }, 502)
+    }
+
     await db.from('requests').update({ notified_at: new Date().toISOString() }).eq('id', id)
     return json({ ok: true })
   } catch (e) {

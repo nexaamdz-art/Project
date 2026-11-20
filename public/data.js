@@ -17,6 +17,6 @@ window.ASTRA_DATA={
   {name_ar:"يونس مسرحي",name_en:"Younes Mesrahi",role_ar:"مصور النادي",role_en:"Club Photographer",tier:"member",supervisor:false,photo:"",major:"",year:"",bio_ar:"اللجنة: لجنة التصوير",bio_en:"Committee: Photography",links:{instagram:"",email:""}},
   {name_ar:"بن سالم آية",name_en:"Aya Bensalem",role_ar:"مصورة النادي",role_en:"Club Photographer",tier:"member",supervisor:false,photo:"",major:"",year:"",bio_ar:"اللجنة: لجنة التصوير",bio_en:"Committee: Photography",links:{instagram:"",email:""}}
  ],
- contact:{email:"nexoria.club@example.com",social:{instagram:"",facebook:"",linkedin:"",youtube:""}}
+ contact:{email:"nexa.am.dz@gmail.com",social:{instagram:"",facebook:"",linkedin:"",youtube:""}}
 };
 

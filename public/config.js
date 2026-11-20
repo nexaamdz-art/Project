@@ -3,7 +3,7 @@
  * Replace these sample values with the club's official contact details.
  */
 window.ASTRAMIND_CONFIG = {
-  email: "nexoria.club@example.com",
+  email: "nexa.am.dz@gmail.com",
   social: {
     youtube: "https://youtube.com/@your-channel",
     instagram: "https://instagram.com/your_username",
